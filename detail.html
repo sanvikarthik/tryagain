@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>diagnosis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Set background color */
+            font-family: Arial, sans-serif; /* Set font family */
+        }
+
+        .container {
+            max-width: 600px; /* Set maximum width for better readability */
+            margin: 50px auto; /* Center the container */
+            padding: 20px; /* Add padding for spacing */
+            background-color: #fff; /* Light gray background */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        }
+
+        h2 {
+            margin-top: 20px; /* Add space above headings */
+            color: #333; /* Dark text color */
+        }
+
+        .form-group {
+            margin-bottom: 20px; /* Add space between form elements */
+        }
+
+        label {
+            font-weight: bold; /* Bold labels */
+            color: #555; /* Dark gray label text */
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        select {
+            width: 100%; /* Set input width to fill container */
+            padding: 10px; /* Add padding for spacing */
+            border: 1px solid #ccc; /* Add border */
+            border-radius: 5px; /* Rounded corners */
+            box-sizing: border-box; /* Include padding in input width */
+        }
+
+        .btn-primary {
+            width: 100%; /* Set button width to fill container */
+            padding: 10px; /* Add padding for spacing */
+            background-color: rgb(59, 58, 56); /* Blue button background */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            color: #fff; /* White text color */
+            cursor: pointer; /* Add cursor on hover */
+        }
+
+        .btn-primary:hover {
+            background-color: darkolivegreen; /* Darker blue background on hover */
+        }
+
+        .form-check-label {
+            margin-left: 5px; /* Add space between checkbox and label */
+            color: #555; /* Dark gray text color */
+        }
+
+        .footer {
+            margin-top: 50px; /* Add space above footer */
+            text-align: center; /* Center text */
+            color: #888; /* Gray text color */
+        }
+
+        .social-icons a {
+            margin: 0 5px; /* Add space between social icons */
+            color: grey; /* Blue social icon color */
+            text-decoration: none; /* Remove underline */
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary navbar bg-dark border-bottom border-body" data-bs-theme="dark">    
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">DIAGNOSIS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        CODE
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">FRONTEND</a></li>
+                        <li><a class="dropdown-item" href="#">BACKEND</a></li>
+                        <li><a class="dropdown-item" href="#">MACHINE LEARNING</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <form action="diabetesform.php" method="POST">
+        <h2>Personal Details</h2>
+        
+        <div class="form-group">
+            <label for="inputFirstName">First Name</label>
+            <input type="text" class="form-control" id="inputFirstName" name="inputFirstName" placeholder="First Name">
+        </div>
+        <div class="form-group">
+            <label for="inputLastName">Last Name</label>
+            <input type="text" class="form-control" id="inputLastName" name="inputLastName" placeholder="Last Name">
+        </div>
+        <div class="form-group">
+            <label for="inputaadhar">Aadhar Number</label>
+            <input type="number" class="form-control" id="inputaadhar" name="inputaadhar" placeholder="Aadhar Number">
+        </div>
+        <div class="form-group">
+            <label for="inputpan">Pan Number</label>
+            <input type="text" class="form-control" id="inputpan" name="inputpan" placeholder="Pan Number">
+        </div>
+        <div class="form-group">
+            <label for="inputDOB">Date of Birth</label>
+            <input type="date" class="form-control" id="inputDOB" name="inputDOB">
+        </div>
+        <div class="form-group">
+            <label for="inputGender">Gender</label>
+            <select id="inputGender" class="form-control" name="inputGender">
+                <option selected>Choose...</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="inputMaritalStatus">Marital Status</label>
+            <select id="inputMaritalStatus" class="form-control" name="inputMaritalStatus">
+                <option selected>Choose...</option>
+                <option>Single</option>
+                <option>Married</option>
+                <option>Divorced</option>
+                <option>Widowed</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="inputSmokingHistory">Smoking History</label>
+            <select id="inputSmokingHistory" class="form-control" name="inputSmokingHistory">
+                <option value="0">Never Smoked</option>
+                <option value="1">Former Smoker</option>
+                <option value="2">Current Smoker</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="inputOccupation">Occupation</label>
+            <input type="text" class="form-control" id="inputOccupation" name="inputOccupation" placeholder="Occupation">
+        </div>
+        <div class="form-group">
+            <label for="inputContactNumber">Contact Number</label>
+            <input type="tel" class="form-control" id="inputContactNumber" name="inputContactNumber" placeholder="Contact Number">
+        </div>
+        <div class="form-group">
+            <label for="inputinsurance">Insurance Number</label>
+            <input type="number" class="form-control" id="inputinsurance" name="inputinsurance" placeholder="Insurance Number">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Address</label>
+            <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress2">Address 2</label>
+            <input type="text" class="form-control" id="inputAddress2" name="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity" name="inputCity">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <input type="text" class="form-control" id="inputState" name="inputState">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip" name="inputZip">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    Check me out
+                </label>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-lg" type="submit">HEALTH FORM</button>
+    </form>
+</div>
+
+<footer class="footer">
+    <ul class="social-icons">
+        <li><a href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+        <li><a href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+        <li><a href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+    </ul>
+</footer>
+
+</body>
+</html>

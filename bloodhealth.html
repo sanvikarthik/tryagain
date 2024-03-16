@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnosis</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    .custom-form {
+      max-width: 100%;
+      margin-top: 50px;
+      margin-left: 30px;
+      margin-right: 30px;
+      padding: 20px;
+      border: 2px solid black;
+      background-color: #f0f0f0;
+      color: black;
+      border-radius: 10px;
+    }
+
+    .form-group label {
+      color: black;
+    }
+
+    .form-check-label {
+      color: black;
+    }
+
+    .btn-primary {
+      background-color: black;
+      border-color: black;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #555;
+      border-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">DIAGNOSIS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            CODE
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">FRONTEND</a></li>
+            <li><a class="dropdown-item" href="#">BACKEND</a></li>
+            <li><a class="dropdown-item" href="#">MACHINE LEARNING</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<form class="custom-form" action="blood.php" method="POST">
+  <h2>BLOOD HEALTH FORM</h2>
+  
+  <div class="form-group">
+    <label for="inputglucose">Glucose level</label>
+    <input type="number" class="form-control" id="inputglucose" name="inputglucose" placeholder="Glucose Level">
+  </div>
+
+  <div class="form-group">
+    <label for="inputHypertension">Hypertension</label>
+    <select id="inputHypertension" class="form-control" name="inputHypertension">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select>
+  </div>
+
+    <div class="form-group">
+        <label for="inputHbA1C">HbA1C Level</label>
+        <input type="number" step="0.01" class="form-control" id="inputHbA1C" name="inputHbA1C" placeholder="HbA1C Level">
+    </div>
+
+    <div class="form-group">
+      <label for="inputHeartDisease">Heart Disease</label>
+      <select id="inputHeartDisease" class="form-control" name="inputHeartDisease">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+    </div>
+
+  <div class="form-group">
+    <label for="inputheight">Height (in cm)</label>
+    <input type="number" class="form-control" id="inputheight" name="inputheight" placeholder="Height" oninput="calculateBMI()">
+  </div>
+
+  <div class="form-group">
+    <label for="inputweight">Weight (in kg)</label>
+    <input type="number" class="form-control" id="inputweight" name="inputweight" placeholder="Weight" oninput="calculateBMI()">
+  </div>
+
+  <div class="form-group">
+    <label for="inputbmi">BMI</label>
+    <input type="text" class="form-control" id="inputbmi" name="inputbmi" placeholder="BMI" readonly>
+  </div>
+  <div class="form-group">
+    <label for="inputAge">Age</label>
+    <input type="number" class="form-control" id="inputAge" name="inputAge" placeholder="Age">
+  </div>
+
+  <div class="form-group">
+    <label for="inputGender">Gender</label>
+    <select id="inputGender" class="form-control" name="inputGender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="inputSmokingHistory">Smoking History</label>
+    <input type="text" class="form-control" id="inputSmokingHistory" name="inputSmokingHistory" placeholder="Smoking History">
+  </div>
+
+
+  <button class="btn btn-primary btn-lg" type="button" onclick="submitForm()">
+    <a href="result.html" class="text-decoration-none text-white">CHECK DIAGNOSIS</a>
+  </button>
+</form>
+
+<script>
+  function calculateBMI() {
+    var height = document.getElementById("inputheight").value / 100; // Convert height to meters
+    var weight = document.getElementById("inputweight").value;
+    var bmi = (weight / (height * height)).toFixed(2);
+    document.getElementById("inputbmi").value = bmi;
+  }
+  function submitForm() {
+    // Perform any client-side validation here if needed
+
+    // Submit the form
+    document.querySelector(".custom-form").submit();
+  }
+</script>
+
+</body>
+</html>
